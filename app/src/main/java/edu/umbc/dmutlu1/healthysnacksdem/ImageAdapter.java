@@ -29,7 +29,9 @@ public class ImageAdapter extends BaseAdapter
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
+
         ImageView imageView;
+
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
             imageView = new ImageView(mContext);
@@ -41,11 +43,12 @@ public class ImageAdapter extends BaseAdapter
         }
 
         imageView.setImageResource(mThumbIds[position]);
+
         return imageView;
     }
 
     // references to our images
-    private Integer[] mThumbIds = {
+    public static Integer[] mThumbIds = {
             R.drawable.snack1, R.drawable.snack2,
             R.drawable.snack3, R.drawable.snack4,
             R.drawable.snack5, R.drawable.snack6
