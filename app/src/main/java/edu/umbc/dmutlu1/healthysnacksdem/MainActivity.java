@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity
 
         GridView gridview = findViewById(R.id.gridView);
         gridview.setAdapter(new ImageAdapter(this));
+        gridview.setNestedScrollingEnabled(true);
 
         gridview.setOnItemClickListener((adapterView, view, pos, id)
                 -> zoomImageFromThumb(ImageAdapter.mThumbIds[pos]));

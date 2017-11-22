@@ -16,6 +16,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:toolbarId="@+id/toolbar"
+                android:theme="@style/AppTheme.ActionBar"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:layout_scrollInterpolator="@android:anim/decelerate_interpolator"
                 app:titleEnabled="true"
@@ -31,6 +32,7 @@
                     android:layout_height="match_parent"
                     android:src="@drawable/snack0"
                     android:scaleType="centerCrop"
+                    android:contentDescription="@string/app_name"
                     />
 
             <android.support.v7.widget.Toolbar
@@ -42,41 +44,22 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
+    <GridView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingViewBehavior">
+            android:columnWidth="90dp"
+            android:numColumns="2"
+            android:verticalSpacing="10dp"
+            android:horizontalSpacing="10dp"
+            android:stretchMode="columnWidth"
+            android:gravity="center"
+            android:id="@+id/gridView"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-        <FrameLayout
-                     android:layout_width="match_parent"
-                     android:layout_height="match_parent">
-
-            <GridView
-                    android:layout_width="match_parent"
-                    android:layout_height="425dp"
-                    android:columnWidth="90dp"
-                    android:numColumns="2"
-                    android:verticalSpacing="10dp"
-                    android:horizontalSpacing="10dp"
-                    android:stretchMode="columnWidth"
-                    android:gravity="center"
-                    android:id="@+id/gridView"/>
-
-            <!-- This initially-hidden ImageView will hold the expanded/zoomed version of
-                 the images above. Without transformations applied, it takes up the entire
-                 screen. To achieve the "zoom" animation, this view's bounds are animated
-                 from the bounds of the thumbnail button above, to its final laid-out
-                 bounds.
-                 -->
-
-            <ImageView
-                    android:id="@+id/expanded_image"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="invisible"
-                    android:contentDescription="description_zoom_touch_close"/>
-
-        </FrameLayout>
-
-    </android.support.v4.widget.NestedScrollView>
+    <ImageView
+            android:id="@+id/expanded_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:contentDescription="@string/touch_to_close"/>
 </android.support.design.widget.CoordinatorLayout>
